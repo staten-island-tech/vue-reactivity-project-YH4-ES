@@ -1,15 +1,8 @@
 <template>
-  <div>
-    <h2>"JOHN VUE"</h2>
-  </div>
+  <div></div>
+  <RouterView />
 </template>
 
-<script>
-  export default {
-    
-  }
-</script>
+<script setup></script>
 
-<style lang="scss" scoped>
-
-</style>
+<style scoped></style>
