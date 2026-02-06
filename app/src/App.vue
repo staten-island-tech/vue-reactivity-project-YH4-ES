@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <h2>"JOHN VUE"</h2>
   </div>
 </template>
 
