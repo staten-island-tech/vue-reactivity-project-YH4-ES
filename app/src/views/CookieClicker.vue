@@ -1,6 +1,6 @@
 <template>
     <div id="cookiediv">
-        <h2 id="cookiecounter">Cookies: {{ cookies }}</h2>
+        <h2 id="cookiecounter">Cookies: {{ cookies.count }}</h2>
         <img @click="incCookie()"  @contextmenu.prevent="incCookie" id="cookieimg"src="/cookie.png"/>
     </div>
     <div class="sidebar" id = "upgradebar"><Upgradetemplate v-for="upgrade in upgrades" :key="upgrade.name" :upgrade="upgrade"></Upgradetemplate></div> <!--cycle through a list of stuff using a component-->
@@ -9,10 +9,10 @@
 <script setup>
 import Upgradetemplate from "@/components/upgradetemplate.vue"
 import {ref} from"vue"
-const cookies = ref(0)
+import { cookies } from "@/stores/store.js"
 let clickInc = ref(1)
 function incCookie(){
-    cookies.value = cookies.value + clickInc.value
+    cookies.count = cookies.count + clickInc.value
 }
 function changeInc(num){
     clickInc.value = num
@@ -69,5 +69,6 @@ const upgrades = ref([
 #cookiecounter{
     width: fit-content;
 }
+
 
 </style>

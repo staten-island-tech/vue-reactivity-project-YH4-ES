@@ -7,15 +7,23 @@
 </template>
 
 <script setup>
+import {ref} from "vue"
+import { cookies } from "@/stores/store.js"
 defineProps({
     upgrade: {
         type: Object,
         required: true,
     }
 })
-let upgradenum = {}
+let upgradenum = ref({})
 function takeCookies (el, cost, inc){
-    upgradenum.el = upgradenum.el + cost || 0
+    upgradenum[el] = upgradenum[el] + 1 || 0
+    let actualInc
+    if (upgradenum[el] >= 0){
+        actualInc = 0
+    } else {actualInc = inc^upgradenum[el]}
+    console.log(cost * (inc^upgradenum[el]))
+    cookies.count -= cost
 }
 </script>
 
