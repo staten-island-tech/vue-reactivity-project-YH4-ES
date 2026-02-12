@@ -21,7 +21,7 @@ function changeInc(num){
 const upgrades = ref([
     {
         name : "Cookies-Per-Click",
-        cost : 0,
+        cost : 1,
         costInc: 2,
         expo: 2.5,
         upgradeLimit: 100,
