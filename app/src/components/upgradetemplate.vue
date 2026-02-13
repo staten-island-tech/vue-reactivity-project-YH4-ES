@@ -2,40 +2,49 @@
     <div @click="takeCookies(upgrade.name, upgrade.cost, upgrade.costInc, upgrade.upgradeLimit)">
         <h2>{{ upgrade.name }}</h2>
         <p>{{ upgrade.desc }}</p>
-        <p class = "cost">Costs: {{ upgradenum.get(upgrade.name) || upgrade.cost }} Cookies</p>
+        <p class = "cost">Costs: {{ costList[upgrade.name] }} Cookies</p>
     </div>
 </template>
 
 <script setup>
-import {ref} from "vue"
+import {onMounted, ref} from "vue"
 import { cookies } from "@/stores/store.js"
 import { upgradenum } from "@/stores/store.js";
-defineProps({
+const costList = ref({
+    ["Cookies-Per-Click"] : 1
+})
+const props = defineProps({
     upgrade: {
         type: Object,
         required: true,
     }
 })
+onMounted(() => {
+    console.log(props)
+})
 function takeCookies (el, cost, inc, limit){
     console.log(limit)
     if (upgradenum.num.get(el) >= 0) {
         console.log("Another upgrade")
-        upgradenum.set(el, upgradenum.get(el) + 1)
+        upgradenum.num.set(el, upgradenum.num.get(el) + 1)
 
     }
     else {
-        console.log("set to 0", upgradenum.get(el))
-        upgradenum.set(el, 0)}
+        console.log("set to 0", upgradenum.num.get(el))
+        upgradenum.num.set(el, 0)}
     let actualInc
-    if (upgradenum.get(el) == 0){
+    if (upgradenum.num.get(el) == 0){
         actualInc = 0
     } else {
-        actualInc = inc**(upgradenum.get(el))
+        actualInc = inc**(upgradenum.num.get(el))
     }
-    console.log(cost * actualInc, actualInc, inc, upgradenum.get(el))
+    console.log(cost * actualInc, actualInc, inc, upgradenum.num.get(el))
+
+    costList.value[el] = cost * (inc**(upgradenum.num.get(el) + 1))
     cost = cost * actualInc
     cookies.count -= cost
-    if (upgradenum.get(el) >= limit) {
+    console.log(costList)
+    if (upgradenum.num.get(el) >= limit) {
         console.log("MAX")
         
     }
