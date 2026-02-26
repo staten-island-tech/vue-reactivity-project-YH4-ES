@@ -22,7 +22,7 @@ onMounted(() => {
     costList.value[props.upgrade.name] = props.upgrade.cost
 })
 function takeCookies (el, cost, inc, limit){
-    if (costList.value[el] == "MAX") {return}
+    if (costList.value[el] == "MAX") {return} 
     console.log(limit, el, limit, upgradenum.num.get(el))
     if (upgradenum.num.get(el) >= 0) {
         console.log("Another upgrade")
