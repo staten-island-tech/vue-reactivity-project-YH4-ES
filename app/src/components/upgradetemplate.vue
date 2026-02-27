@@ -10,6 +10,7 @@
 import {onMounted, ref} from "vue"
 import { cookies } from "@/stores/store.js"
 import { upgradenum } from "@/stores/store.js";
+import { CookiesPerClick } from "@/stores/store.js";
 const props = defineProps({
     upgrade: {
         type: Object,
@@ -20,6 +21,8 @@ const costList = ref({})
 
 onMounted(() => {
     costList.value[props.upgrade.name] = props.upgrade.cost
+    props.upgrade.value[0].effect(CookiesPerClick)
+    console.log(CookiesPerClick, props.upgrade.value[0].effect)
 })
 function takeCookies (el, cost, inc, limit){
     if (costList.value[el] == "MAX") {return} 
@@ -44,8 +47,8 @@ function takeCookies (el, cost, inc, limit){
     cost = cost * actualInc
     cookies.count -= cost
     console.log(costList)
+
     if (upgradenum.num.get(el) >= limit) {
-        console.log("MAX")
         costList.value[el] = "MAX"
     }
 }
