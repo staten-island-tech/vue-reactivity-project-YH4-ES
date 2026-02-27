@@ -7,3 +7,5 @@ export const cookies = reactive({
 export const upgradenum = reactive({
   num : new Map()
 })
+
+export const CookiesPerClick = reactive(1)
