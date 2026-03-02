@@ -8,4 +8,17 @@ export const upgradenum = reactive({
   num : new Map()
 })
 
-export const CookiesPerClick = reactive(1)
+export const upgradeFunctions = {
+  ["Cookies-Per-Click"] : {
+    function (CPC, clickScale) {
+      CPC + clickScale
+    }
+  },
+  ["Auto-Cookier"] : {
+    function (freqobj) {
+      while(true) {
+        
+      }
+    }
+  }
+}
