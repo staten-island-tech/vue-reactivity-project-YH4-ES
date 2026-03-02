@@ -16,8 +16,10 @@ export const upgradeFunctions = {
   },
   ["Auto-Cookier"] : {
     function (freqobj) {
+      let lastTick
       while(true) {
-        
+        let now = Date.now()
+        if (now >= lastTick + freqobj)
       }
     }
   }
