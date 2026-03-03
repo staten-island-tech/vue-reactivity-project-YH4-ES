@@ -12,15 +12,15 @@ export const upgradeFunctions = {
   ["Cookies-Per-Click"] : {
     function (CPC, clickScale) {
       CPC + clickScale
+      console.log("John")
     }
   },
   ["Auto-Cookier"] : {
     function (freqobj) {
-      let lastTick
-      while(true) {
-        let now = Date.now()
-        if (now >= lastTick + freqobj)
-      }
+      let interval = setInterval(function() {
+        cookies.value += 5
+        console.log("John")
+      }, 5000);
     }
   }
 }

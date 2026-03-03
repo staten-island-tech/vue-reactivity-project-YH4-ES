@@ -28,9 +28,6 @@ const upgrades = ref([
         desc: "Increases amount of Cookies you get per click.",
         numStack: 0,
         clickScale: 1,
-        effect: function(CPC) {
-            CPC + self.clickScale
-        }
     },
     {
         name : "Auto-Cookier",
@@ -43,7 +40,7 @@ const upgrades = ref([
     }
 ])
 
-upgrades.value[0].effect(clickInc)
+//upgrades.value[0].effect(clickInc)
 </script>
 
 <style scoped>

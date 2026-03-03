@@ -22,7 +22,11 @@ const costList = ref({})
 onMounted(() => {
     let name = props.upgrade.name
     costList.value[name] = props.upgrade.cost
-    console.log(upgradeFunctions[name], name)
+    if (upgradeFunctions[name]) {
+        console.log(upgradeFunctions[name].function, name)
+        upgradeFunctions[name].function()
+    }
+    
 })
 
 function takeCookies (el, cost, inc, limit){
