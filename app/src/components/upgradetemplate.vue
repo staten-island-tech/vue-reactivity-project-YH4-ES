@@ -2,7 +2,7 @@
     <div @click="takeCookies(upgrade.name, upgrade.cost, upgrade.costInc, upgrade.upgradeLimit)">
         <h2>{{ upgrade.name }}</h2>
         <p>{{ upgrade.desc }}</p>
-        <p class = "cost">Costs: {{ costList[upgrade.name] }} Cookies</p>
+        <p class = "cost">Costs: {{ costList[upgrade.name] }} Cookie(s)</p>
     </div>
 </template>
 
@@ -30,25 +30,29 @@ onMounted(() => {
 })
 
 function takeCookies (el, cost, inc, limit){
-    if (costList.value[el] == "MAX") {return} 
-    console.log(limit, el, limit, upgradenum.num.get(el))
-    if (upgradenum.num.get(el) >= 0) {
+    if (costList.value[el] == "MAX" || cookies <= cost) {return} 
+
+    upgradeFunctions[el].function()
+
+    if (upgradenum.num.get(el) >= 1) {
         console.log("Another upgrade")
         upgradenum.num.set(el, upgradenum.num.get(el) + 1)
 
-    }
-    else {
-        console.log("set to 0", upgradenum.num.get(el))
-        upgradenum.num.set(el, 0)}
-    let actualInc
-    if (upgradenum.num.get(el) == 0){
-        actualInc = 0
     } else {
-        actualInc = inc**(upgradenum.num.get(el))
+        upgradenum.num.set(el, 1)
+    }
+    console.log(limit, el, limit, upgradenum.num.get(el))
+
+    let actualInc
+
+    if (upgradenum.num.get(el) == 0){
+        actualInc = 1
+    } else {
+        actualInc = inc**(upgradenum.num.get(el) - 1)
     }
     console.log(cost * actualInc, actualInc, inc, upgradenum.num.get(el))
 
-    costList.value[el] = cost * (inc**(upgradenum.num.get(el) + 1))
+    costList.value[el] = cost * (inc**(upgradenum.num.get(el)))
     cost = cost * actualInc
     cookies.count -= cost
     console.log(costList)

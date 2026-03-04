@@ -9,8 +9,11 @@
 <script setup>
 import Upgradetemplate from "@/components/upgradetemplate.vue"
 import {ref} from"vue"
+
 import { cookies } from "@/stores/store.js"
-let clickInc = ref(1)
+import { CPC } from "@/stores/store.js"
+
+let clickInc = CPC.ClicksPerClick
 function incCookie(){
     cookies.count = cookies.count + clickInc.value
 }
