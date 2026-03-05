@@ -1,4 +1,5 @@
 <template>
+    <div id="stockholm">How stockholm syndrome is made.</div>
     <div id="cookiediv">
         <h2 id="cookiecounter">Cookies: {{ cookies.count }}</h2>
         <img @click="incCookie()"  @contextmenu.prevent="incCookie" id="cookieimg"src="/cookie.png"/>
@@ -13,12 +14,8 @@ import {ref} from"vue"
 import { cookies } from "@/stores/store.js"
 import { CPC } from "@/stores/store.js"
 
-let clickInc = CPC.ClicksPerClick
 function incCookie(){
-    cookies.count = cookies.count + clickInc.value
-}
-function changeInc(num){
-    clickInc.value = num
+    cookies.count = cookies.count + CPC.value
 }
 
 const upgrades = ref([
@@ -63,6 +60,7 @@ const upgrades = ref([
     margin: auto;
 }
 .sidebar{
+    top:10%;
     width: 25%;
     height: auto;
     position: absolute;
@@ -70,10 +68,16 @@ const upgrades = ref([
 #upgradebar{
     position: absolute;
     right: 0;
-    top: 0;
 }
 #cookiecounter{
     width: fit-content;
+}
+#stockholm{
+    background-color: black;
+    color: white;
+    height: 10%;
+    align-content: center;
+    text-align: center;
 }
 
 

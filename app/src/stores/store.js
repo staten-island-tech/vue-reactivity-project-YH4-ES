@@ -18,9 +18,8 @@ export const upgradeFunctions = {
 
   ["Cookies-Per-Click"] : {
     function () {
-      CPC = nextCPCupgrade.value
-      nextCPCupgrade.value == nextCPCupgrade.value* nextCPCupgrade.value
-      console.log(CPC)
+      CPC.value = Math.ceil(nextCPCupgrade.value)
+      nextCPCupgrade.value = nextCPCupgrade.value**1.2
     }
   },
 
@@ -28,11 +27,11 @@ export const upgradeFunctions = {
   ["Auto-Cookier"] : {
     function () {
       if (autoLoad) {
-        autoLoad = autoLoad**2
+        autoLoad = autoLoad**1.5
       }else {
         autoLoad = 5
         let interval = setInterval(function() {
-        cookies.count += autoLoad
+        cookies.count += Math.ceil(autoLoad)
         }, 5000)
       }
     }
