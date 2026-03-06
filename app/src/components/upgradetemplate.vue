@@ -55,6 +55,6 @@ function takeCookies (el, cost, inc, limit){
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
 
 </style>
