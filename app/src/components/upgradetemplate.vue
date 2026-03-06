@@ -64,4 +64,7 @@ function takeCookies (el, cost, inc, limit){
     border-right-width: 0;
     border-top-width: 0;
 }
+#upgrade:hover {
+    color: white
+}
 </style>
