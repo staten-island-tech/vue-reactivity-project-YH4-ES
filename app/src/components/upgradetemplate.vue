@@ -1,5 +1,5 @@
 <template>
-    <div @click="takeCookies(upgrade.name, upgrade.cost, upgrade.costInc, upgrade.upgradeLimit)">
+    <div id = "upgrade" @click="takeCookies(upgrade.name, upgrade.cost, upgrade.costInc, upgrade.upgradeLimit)">
         <h2>{{ upgrade.name }}</h2>
         <p>{{ upgrade.desc }}</p>
         <p class = "cost">Costs: {{ costList[upgrade.name] }} Cookie(s)</p>
@@ -57,4 +57,11 @@ function takeCookies (el, cost, inc, limit){
 
 <style lang="css" scoped>
 
+#upgrade{
+    border: solid;
+    border-left-width: 0;
+    border-bottom-width: 5px;
+    border-right-width: 0;
+    border-top-width: 0;
+}
 </style>

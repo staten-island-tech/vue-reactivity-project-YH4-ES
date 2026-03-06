@@ -68,9 +68,18 @@ const upgrades = ref([
 #upgradebar{
     position: absolute;
     right: 0;
+    border: solid;
+    border-radius: 5px;
+    height: 70%;
+    background-color: rgba(250, 184, 158, 0.842);
+    color: rgb(231, 38, 38);
 }
 #cookiecounter{
     width: fit-content;
+    color: rgb(37, 211, 255);
+    -webkit-text-stroke: 2px navy;
+    font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+    font-size: 28px;
 }
 #stockholm{
     background-color: black;
@@ -78,7 +87,16 @@ const upgrades = ref([
     height: 10%;
     align-content: center;
     text-align: center;
+    border: solid;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-color: white;
 }
-
+:global(html) {
+    background-color: #ffbed7;
+background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23e87171' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+}
 
 </style>
